@@ -46,8 +46,12 @@ const Memotest = () => {
         }
     }, [matchedCards, cards.length]);
 
+    const shuffleArray = (array) => {
+        return array.sort(() => Math.random() - 0.5);
+    };
+    
     const resetGame = () => {
-        setCards(shuffledCards);
+        setCards(shuffleArray([...shuffledCards])); 
         setFlippedCards([]);
         setMatchedCards([]);
         setAttempts(0);
